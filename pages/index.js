@@ -10,9 +10,10 @@ export default function Home() {
             <div class="text-xl text-gray-900 font-bold relative rounded-xl ring-1 ring-black ring-opacity-5 shadow-sm w-full p-12" href="">
               <span class="tool"> UUID </span>
               <div class="w-full h-full absolute inset-0 flex p-1 space-x-1 opacity-0 hover:opacity-100">
-                <a class="transition-colors duration-150 bg-blue-200 bg-opacity-25  hover:bg-opacity-75 cursor-pointer w-1/2 h-full rounded-lg flex items-center justify-center">
+                <Link href="/posts/first-post"><a class="transition-colors duration-150 bg-blue-200 bg-opacity-25  hover:bg-opacity-75 cursor-pointer w-1/2 h-full rounded-lg flex items-center justify-center">
                   <span class="text-blue-700">5</span>
                 </a>
+                </Link>
                 <a class="transition-colors duration-150 bg-blue-200 bg-opacity-25 hover:bg-opacity-75 cursor-pointer w-1/2 h-full rounded-lg flex items-center justify-center">
                   <span class="text-blue-700">10</span>
                 </a>
