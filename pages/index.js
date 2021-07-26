@@ -19,55 +19,51 @@ const ToolList = props => {
         }
       ]
     },
+    // {
+    //   text: 'Base64',
+    //   links: [
+    //     {
+    //       text: '编码',
+    //       href: '/posts/first-post'
+    //     },
+    //     {
+    //       text: '解码',
+    //       href: '/posts/first-post'
+    //     }
+    //   ]
+    // },
+    // {
+    //   text: 'Timestamp',
+    //   links: [
+    //     {
+    //       text: '解析',
+    //       href: '/posts/first-post'
+    //     },
+    //     {
+    //       text: '生成',
+    //       href: '/posts/first-post'
+    //     }
+    //   ]
+    // },
+    // {
+    //   text: <TransferIcon left='RGBA' right='HEX' />,
+    //   links: [
+    //     {
+    //       text: 'RGBA',
+    //       href: '/posts/first-post'
+    //     },
+    //     {
+    //       text: 'HEX',
+    //       href: '/posts/first-post'
+    //     }
+    //   ]
+    // },
     {
-      text: 'Base64',
+      text: <TransferIcon left='驼峰' right='蛇形' />,
       links: [
         {
-          text: '编码',
-          href: '/posts/first-post'
-        },
-        {
-          text: '解码',
-          href: '/posts/first-post'
-        }
-      ]
-    },
-    {
-      text: 'Timestamp',
-      links: [
-        {
-          text: '解析',
-          href: '/posts/first-post'
-        },
-        {
-          text: '生成',
-          href: '/posts/first-post'
-        }
-      ]
-    },
-    {
-      text: <TransferIcon left='RGBA' right='HEX' />,
-      links: [
-        {
-          text: 'RGBA',
-          href: '/posts/first-post'
-        },
-        {
-          text: 'HEX',
-          href: '/posts/first-post'
-        }
-      ]
-    },
-    {
-      text: <TransferIcon left='下划线' right='驼峰' />,
-      links: [
-        {
-          text: '下划线',
-          href: '/posts/first-post'
-        },
-        {
-          text: '驼峰',
-          href: '/posts/first-post'
+          text: '互转',
+          href: '/camel'
         }
       ]
     },
@@ -159,7 +155,7 @@ export default function Home () {
             </h2>
             <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
               <div className="inline-flex rounded-md shadow">
-                <a
+                {/* <a
                   href="#"
                   className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-indigo-50"
                 >
@@ -172,7 +168,7 @@ export default function Home () {
                   className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Learn more
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
