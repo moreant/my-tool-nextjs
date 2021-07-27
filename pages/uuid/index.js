@@ -86,7 +86,7 @@ export default function UUID () {
           <p>TODO: 无需关心生成，直接复制即可</p>
         </div>
 
-        <label htmlFor="count" className="block text-sm font-medium text-gray-700">生成数量</label>
+        <label htmlFor="count" className="mb-1 block text-sm font-medium text-gray-700">生成数量</label>
         <div className="flex flex-wrap mb-4">
           <div className="relative">
             <input

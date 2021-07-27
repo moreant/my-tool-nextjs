@@ -57,15 +57,21 @@ export default function Camel () {
       <Nav />
       <Container>
         <ToolHead name="驼峰命名、蛇形命名互转" desc="驼峰命名(userId), 蛇形命名(user_id)" />
-        <div className="grid grid-cols-3 gap-4">
+        <div className="prose mb-5">
+          <p>自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形</p>
+        </div>
+        <div className="grid grid-cols-3 gap-5">
           <div>
-            <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} name="userInput" id="userInput" rows={areaRows} className="w-full border border-gray-200"></textarea>
+            <label htmlFor="userInput" className="mb-1 block text-sm font-medium text-gray-700">输入文本</label>
+            <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
           <div>
-            <textarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows} className="w-full border border-gray-200"></textarea>
+            <label htmlFor="canmel" className="mb-1 block text-sm font-medium text-gray-700">驼峰类型</label>
+            <textarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
           <div>
-            <textarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows} className="w-full border border-gray-200"></textarea>
+            <label htmlFor="snake" className="mb-1 block text-sm font-medium text-gray-700">蛇形类型</label>
+            <textarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
         </div>
       </Container>
