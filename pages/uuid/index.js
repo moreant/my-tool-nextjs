@@ -108,7 +108,7 @@ export default function UUID () {
           </a>
           <CopyBtn state={copyState} />
         </div>
-        <textarea value={uuidList} onChange={() => { }} rows="11" className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md">
+        <textarea value={uuidList} onChange={event => { setUuidList(event.target.value) }} rows="11" className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md">
 
         </textarea>
       </Container>

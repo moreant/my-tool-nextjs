@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 import Container from '../../components/Container'
 import Head from '../../components/Head'
@@ -30,16 +30,26 @@ function camel2Snake (s) {
 
 export default function Camel () {
 
-  const [count, setCount] = useState('')
+  const defaultRows = 10
+  const [inputText, setInputText] = useState('')
+  const [result, setResult] = useState({ canmel: '', snake: '' })
+  const [areaRows, setAreaRow] = useState(defaultRows)
 
+  // 自动焦点
   const inputRef = useCallback(node => {
     if (node !== null) {
       node.focus()
-      console.log(node)
     }
   })
 
-
+  useEffect(() => {
+    let list = inputText.split("\n")
+    let canmel = list.map(item => snake2Camel(item)).join('\n')
+    let snake = list.map(item => camel2Snake(item)).join('\n')
+    console.log(list.length );
+    setAreaRow(list.length === 1 ? defaultRows: list.length + 3)
+    setResult({ canmel, snake })
+  }, [inputText])
 
   return (
     <>
@@ -47,16 +57,15 @@ export default function Camel () {
       <Nav />
       <Container>
         <ToolHead name="驼峰命名、蛇形命名互转" desc="驼峰命名(userId), 蛇形命名(user_id)" />
-        <div className="mt-12 mx-12 grid grid-cols-3 gap-12">
-
+        <div className="grid grid-cols-3 gap-4">
           <div>
-            <textarea ref={inputRef} name="userInput" id="userInput" rows="10" className="w-full border border-gray-200"></textarea>
+            <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} name="userInput" id="userInput" rows={areaRows} className="w-full border border-gray-200"></textarea>
           </div>
           <div>
-            <textarea name="canmel" id="canmel" rows="10" className="w-full border border-gray-200"></textarea>
+            <textarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows} className="w-full border border-gray-200"></textarea>
           </div>
           <div>
-            <textarea name="snake" id="snake" rows="10" className="w-full border border-gray-200"></textarea>
+            <textarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows} className="w-full border border-gray-200"></textarea>
           </div>
         </div>
       </Container>
