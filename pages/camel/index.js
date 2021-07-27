@@ -11,8 +11,10 @@ function snake2Camel (s) {
   return sList.map((item, index) => {
     if (index > 0) {
       var char = [...item]
-      char[0] = char[0].toLocaleUpperCase()
-      return char.join('')
+      if (char.length > 0) {
+        char[0] = char[0].toLocaleUpperCase()
+        return char.join('')
+      }
     } else {
       return item
     }
@@ -46,8 +48,8 @@ export default function Camel () {
     let list = inputText.split("\n")
     let canmel = list.map(item => snake2Camel(item)).join('\n')
     let snake = list.map(item => camel2Snake(item)).join('\n')
-    console.log(list.length );
-    setAreaRow(list.length === 1 ? defaultRows: list.length + 3)
+    console.log(list.length);
+    setAreaRow(list.length === 1 ? defaultRows : list.length + 3)
     setResult({ canmel, snake })
   }, [inputText])
 
@@ -56,7 +58,7 @@ export default function Camel () {
       <Head modul={`Camel2Snake`} />
       <Nav />
       <Container>
-        <ToolHead name="驼峰命名、蛇形命名互转" desc="驼峰命名(userId), 蛇形命名(user_id)" />
+        <ToolHead name="驼峰、蛇形互转" desc="驼峰命名(userId), 蛇形命名(user_id)" />
         <div className="prose mb-5">
           <p>自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形</p>
         </div>
@@ -66,11 +68,11 @@ export default function Camel () {
             <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
           <div>
-            <label htmlFor="canmel" className="mb-1 block text-sm font-medium text-gray-700">驼峰类型</label>
+            <label htmlFor="canmel" className="mb-1 block text-sm font-medium text-gray-700">驼峰命名</label>
             <textarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
           <div>
-            <label htmlFor="snake" className="mb-1 block text-sm font-medium text-gray-700">蛇形类型</label>
+            <label htmlFor="snake" className="mb-1 block text-sm font-medium text-gray-700">蛇形命名</label>
             <textarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
         </div>
