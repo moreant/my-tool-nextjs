@@ -62,7 +62,7 @@ const ToolList = props => {
       text: <TransferIcon left='驼峰' right='蛇形' />,
       links: [
         {
-          text: '互转',
+          text: '饱和互转',
           href: '/camel'
         }
       ]
@@ -106,7 +106,7 @@ const TransferIcon = props => {
 const Item = props => {
   const { item = {} } = props
   const { links = [] } = item
-  let boxClass = 'group text-xl text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 shadow-md w-full p-12'
+  let boxClass = 'group text-xl text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 shadow w-full p-12'
   if (item.type && item.type === 'add') {
     boxClass += ' border-dashed'
   }
