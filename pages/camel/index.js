@@ -1,10 +1,10 @@
+import { ClipboardIcon } from '@heroicons/react/outline'
 import { useState, useEffect, useCallback } from 'react'
 
 import Container from '../../components/Container'
 import Head from '../../components/Head'
 import Nav from '../../components/Nav'
-import ToolHead from '../../components/ToolHead'
-
+import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 
 function snake2Camel (s) {
   var sList = s.split('_')
@@ -29,7 +29,6 @@ function camel2Snake (s) {
 }
 
 
-
 export default function Camel () {
 
   const defaultRows = 10
@@ -49,7 +48,7 @@ export default function Camel () {
     let canmel = list.map(item => snake2Camel(item)).join('\n')
     let snake = list.map(item => camel2Snake(item)).join('\n')
     console.log(list.length);
-    setAreaRow(list.length === 1 ? defaultRows : list.length + 3)
+    setAreaRow(list.length < 10 ? defaultRows : list.length + 2)
     setResult({ canmel, snake })
   }, [inputText])
 
@@ -58,14 +57,17 @@ export default function Camel () {
       <Head modul={`Camel2Snake`} />
       <Nav />
       <Container>
-        <ToolHead name="驼峰、蛇形互转" desc="驼峰命名(userId), 蛇形命名(user_id)" />
-        <div className="prose mb-5">
-          <p>自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形</p>
-        </div>
-        <div className="grid grid-cols-3 gap-5">
+        <ToolTitle title="驼峰、蛇形互转" subtitle="驼峰命名形如: userId; 蛇形命名形如: user_id。 已对连续大写优化( xmlHTTPReq => xml_http_req )。" mdSubtitle="驼峰命名(userId), 蛇形命名(user_id)。" />
+        <ToolDesc text="自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形。" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <label htmlFor="userInput" className="mb-1 block text-sm font-medium text-gray-700">输入文本</label>
-            <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
+            <div className="relative group">
+              <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
+              <div className="absolute top-1.5 right-1.5 opacity-0 group-hover:opacity-100">
+                <ClipboardIcon className="w-5 h-5" />
+              </div>
+            </div>
           </div>
           <div>
             <label htmlFor="canmel" className="mb-1 block text-sm font-medium text-gray-700">驼峰命名</label>
