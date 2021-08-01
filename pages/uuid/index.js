@@ -7,6 +7,7 @@ import { RefreshIcon, ClipboardCopyIcon, ClipboardCheckIcon, DuplicateIcon } fro
 import Container from '../../components/Container'
 import Head from '../../components/Head'
 import Nav from '../../components/Nav'
+import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 import Button from '../../components/Button'
 
@@ -46,16 +47,16 @@ const QuickCopu = () => {
 const CustomQuantity = memo(({ g }) => {
 
   const [count, setCount] = useState(Number(g))
-  const [uuidList, setUuidList] = useState(undefined)
+  const [uuidList, setUuidList] = useState(generateUUID(g))
   const [copyState, setCopyState] = useState(0)
 
   // 异步路由导致需要监听
-  useEffect(() => {
-    if (g > 0) {
-      setCount(g)
-      setUuidList(generateUUID(g))
-    }
-  }, [g])
+  // useEffect(() => {
+  //   if (g > 0) {
+  //     setCount(g)
+  //     setUuidList(generateUUID(g))
+  //   }
+  // }, [g])
 
   const onInputChange = event => {
     const newCount = Number(event.target.value) > 1000 ? 999 : event.target.value
@@ -110,26 +111,24 @@ const CustomQuantity = memo(({ g }) => {
   )
 })
 
+
 export default function UUID () {
-  const router = useRouter()
-  console.log(router.query);
-  let { g = 0 } = router.query
 
   return (
     <>
-      <Head modul={`UUID ${g}`} />
+      <Head modul="UUID" />
       <Nav />
       <Container>
         <ToolTitle title="UUID 生成" subtitle="Universally unique identifier（通用唯一识别码）" mdSubtitle="UUID: 通用唯一识别码。" />
         <ToolDesc text="可以点击按钮直接复制对应数量的 UUID，亦可自定义生成的 UUID 数量(0~999)。" />
         <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0">
           <div className="pb-5 md:pb-0 md:pr-5">
-            <label className="mb-5 block text-xl font-semibold text-gray-700 tracking-wider">直接复制</label>
+            <ColumnLabel text="快速复制" />
             <QuickCopu />
           </div>
           <div className="pt-5 md:pt-0 md:pl-5">
-            <label htmlFor="count" className="mb-5 block text-xl font-semibold text-gray-700 tracking-wider">自定数量</label>
-            <CustomQuantity g={g} />
+            <ColumnLabel htmlFor="count" text="自定数量" />
+            <CustomQuantity g="10" />
           </div>
         </div>
       </Container>

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Container from '../../components/Container'
 import Head from '../../components/Head'
 import Nav from '../../components/Nav'
+import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 
 function snake2Camel (s) {
@@ -61,7 +62,7 @@ export default function Camel () {
         <ToolDesc text="自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形。" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
-            <label htmlFor="userInput" className="mb-1 block text-sm font-medium text-gray-700">输入文本</label>
+            <ColumnLabel htmlFor="userInput" text="输入文本" />
             <div className="relative group">
               <textarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
               <div className="absolute top-1.5 right-1.5 opacity-0 group-hover:opacity-100">
@@ -70,11 +71,11 @@ export default function Camel () {
             </div>
           </div>
           <div>
-            <label htmlFor="canmel" className="mb-1 block text-sm font-medium text-gray-700">驼峰命名</label>
+            <ColumnLabel htmlFor="canmel" text="驼峰命名" />
             <textarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
           <div>
-            <label htmlFor="snake" className="mb-1 block text-sm font-medium text-gray-700">蛇形命名</label>
+            <ColumnLabel htmlFor="snake" text="蛇形命名" />
             <textarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md"></textarea>
           </div>
         </div>

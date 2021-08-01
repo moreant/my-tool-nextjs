@@ -10,11 +10,8 @@ const ToolList = props => {
       text: 'UUID',
       links: [
         {
-          text: '有一杠',
-          href: '/uuid?g=10&hyphen=y'
-        }, {
-          text: '没一杠',
-          href: '/uuid?g=10&hyphen=n'
+          text: '快速复制',
+          href: '/uuid'
         }
       ]
     },
