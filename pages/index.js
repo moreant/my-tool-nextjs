@@ -141,7 +141,6 @@ export default function Home () {
   return (
     <>
       <Head />
-
       <Nav >
         <Container>
           <div className="lg:flex lg:items-center lg:justify-between">

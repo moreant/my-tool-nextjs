@@ -10,6 +10,8 @@ import Nav from '../../components/Nav'
 import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 import Button from '../../components/Button'
+import QuickCopy from '../../components/QuickCopy';
+import QuickCopyTextarea from '../../components/QuickCopyTextarea';
 
 function generateUUID (count) {
   return new Array(Number(count)).fill().map(() => {
@@ -17,7 +19,7 @@ function generateUUID (count) {
   }).join('\n')
 }
 
-const QuickCopu = () => {
+const QuickCopyUUID = () => {
 
   const CopyItem = props => {
     return (
@@ -81,13 +83,15 @@ const CustomQuantity = memo(({ g }) => {
     <>
       <div className="flex flex-wrap mb-4">
         <div className="relative">
-          <input
-            name="count"
-            id="count"
-            value={count} onChange={event => onInputChange(event)} type="number"
-            className="w-32 h-full block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-            placeholder=""
-          />
+          <QuickCopy value={uuidList} className="absolute top-2 right-2 p-1 border border-gray-300 text-gray-300 rounded-md opacity-0 group-hover:opacity-100 hover:bg-gray-50 hover:border-gray-400 hover:text-gray-400" >
+            <input
+              name="count"
+              id="count"
+              value={count} onChange={event => onInputChange(event)} type="number"
+              className="w-32 h-full block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              placeholder=""
+            />
+          </QuickCopy>
         </div>
 
         <Button onClick={refresh} className="ml-3">
@@ -104,12 +108,12 @@ const CustomQuantity = memo(({ g }) => {
         </Button>
 
       </div>
-      <textarea value={uuidList} onChange={event => setUuidList(event.target.value)} rows="11" className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md text-sm md:text-base">
-
-      </textarea>
+        <QuickCopyTextarea value={uuidList} onChange={event => setUuidList(event.target.value)} rows="11">
+        </QuickCopyTextarea>
     </>
   )
 })
+
 
 
 export default function UUID () {
@@ -124,7 +128,7 @@ export default function UUID () {
         <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0">
           <div className="pb-5 md:pb-0 md:pr-5">
             <ColumnLabel text="快速复制" />
-            <QuickCopu />
+            <QuickCopyUUID />
           </div>
           <div className="pt-5 md:pt-0 md:pl-5">
             <ColumnLabel htmlFor="count" text="自定数量" />
