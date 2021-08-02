@@ -1,12 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 
-import Container from '../../components/Container'
-import Head from '../../components/Head'
-import Nav from '../../components/Nav'
+import { Head, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
-import copy from 'copy-to-clipboard'
-import QuickCopy from '../../components/QuickCopy'
 import QuickCopyTextarea from '../../components/QuickCopyTextarea'
 
 function snake2Camel (s) {

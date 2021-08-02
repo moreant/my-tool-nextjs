@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import Container from '../components/Container'
-import Head from '../components/Head'
-import Nav from '../components/Nav'
+import { Head, Nav, Container } from '../components/Page'
 
 const ToolList = props => {
 
@@ -15,19 +13,15 @@ const ToolList = props => {
         }
       ]
     },
-    // {
-    //   text: 'Base64',
-    //   links: [
-    //     {
-    //       text: '编码',
-    //       href: '/posts/first-post'
-    //     },
-    //     {
-    //       text: '解码',
-    //       href: '/posts/first-post'
-    //     }
-    //   ]
-    // },
+    {
+      text: 'Base64',
+      links: [
+        {
+          text: '编码',
+          href: '/base64'
+        }
+      ]
+    },
     // {
     //   text: 'Timestamp',
     //   links: [
