@@ -62,7 +62,7 @@ const ToolList = props => {
       links: [
         {
           text: '添加工具',
-          href: '/posts/first-post'
+          href: 'https://github.com/moreant/my-tool/issues/new'
         }
       ],
       type: 'add'
@@ -140,7 +140,7 @@ export default function Home () {
           <div className="lg:flex lg:items-center lg:justify-between">
             <h2 className="text-3xl tracking-wide text-white sm:text-4xl">
               <span className="block mb-1">使用工具何必那么复杂，</span>
-              <span className="block text-blue-300">移到工具，选择模式，粘贴复制。</span>
+              <span className="block text-blue-300">自动焦点、饱和转化、实时生成、快速复制。</span>
             </h2>
             <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
               <div className="inline-flex rounded-md shadow">

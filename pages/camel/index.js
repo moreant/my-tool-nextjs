@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Head, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
@@ -38,12 +38,7 @@ export default function Camel () {
   const [result, setResult] = useState({ canmel: '', snake: '' })
   const [areaRows, setAreaRow] = useState(defaultRows)
 
-  // 自动焦点
-  const inputRef = useCallback(node => {
-    if (node !== null && inputText === '') {
-      node.focus()
-    }
-  })
+
 
   useEffect(() => {
     let list = inputText.split("\n")
@@ -57,15 +52,15 @@ export default function Camel () {
 
   return (
     <>
-      <Head modul={`Camel2Snake`} />
+      <Head modul={`CamelOrSnake`} />
       <Nav />
       <Container>
-        <ToolTitle title="驼峰、蛇形互转" subtitle="驼峰命名形如: userId; 蛇形命名形如: user_id。 已对连续大写优化( xmlHTTPReq => xml_http_req )。" mdSubtitle="驼峰命名(userId), 蛇形命名(user_id)。" />
-        <ToolDesc text="自动获取焦点，进入页面直接将文本粘贴即可。饱和式转换，无需选择转驼峰还是蛇形。" />
+        <ToolTitle title="驼峰、蛇形互转" subtitle="驼峰命名形如: userId; 蛇形命名形如: user_id。 " mdSubtitle="驼峰命名(userId), 蛇形命名(user_id)。" />
+        <ToolDesc text="饱和式转换，无需选择转驼峰还是蛇形。已对连续大写优化( xmlHTTPReq => xml_http_req )。进入页面后自动获取焦点，可直接Ctrl+C粘贴文本。" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <ColumnLabel htmlFor="userInput" text="输入文本" />
-            <QuickCopyTextarea ref={inputRef} value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} />
+            <QuickCopyTextarea autoFocus value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} />
           </div>
           <div>
             <ColumnLabel htmlFor="canmel" text="驼峰命名" />

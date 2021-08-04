@@ -6,6 +6,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            "max-width":"inherit",
             color: '#6B7280',
           }
         }

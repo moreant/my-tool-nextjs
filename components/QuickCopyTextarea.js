@@ -1,10 +1,21 @@
+import { useCallback } from 'react'
 import QuickCopy from "./QuickCopy"
 
 const QuickCopyTextarea = props => {
+
+  // 自动焦点 优化首次打开
+  const inputRef = useCallback(node => {
+    if (props.autoFocus) {
+      if (node !== null && props.value === '') {
+        node.focus()
+      }
+    }
+  })
+
   return (
     <>
       <QuickCopy value={props.value}>
-        <textarea className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md" {...props} ></textarea>
+        <textarea ref={inputRef} className="w-full border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md" {...props} ></textarea>
       </QuickCopy>
     </>
   )
