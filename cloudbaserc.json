@@ -13,7 +13,7 @@
                 "inputs": {
                     "buildCommand": "npx next build && npx next export",
                     "outputPath": "out",
-                    "cloudPath": "/my-tool"
+                    "cloudPath": "/"
                 }
             }
         }
