@@ -121,7 +121,7 @@ export default function UUID () {
       <Nav />
       <Container>
         <ToolTitle title="UUID 生成" subtitle="Universally unique identifier（通用唯一识别码）" mdSubtitle="UUID: 通用唯一识别码。" />
-        <ToolDesc text="可以点击按钮直接复制对应数量的 UUID，亦可自定义生成的 UUID 数量(0~999)。" />
+        <ToolDesc text="可以点击按钮直接复制对应数量的 UUID，亦可自定义生成的 UUID 数量（0~999）。" />
         <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-x md:divide-y-0">
           <div className="pb-5 md:pb-0 md:pr-5">
             <ColumnLabel text="快速复制" />
