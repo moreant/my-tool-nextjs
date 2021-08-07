@@ -23,13 +23,9 @@ function snake2Camel (s) {
 
 function camel2Snake (s) {
   // by stackoverflow epost
-  s = s.replace(/(.)([A-Z][a-z]+)/, "$1_$2")
-  return s.replace(/([a-z0-9])([A-Z])/, "$1_$2").toLocaleLowerCase()
+  s = s.replace(/(.)([A-Z][a-z]+)/g, "$1_$2")
+  return s.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLocaleLowerCase()
 }
-
-
-
-
 
 export default function Camel () {
 
@@ -38,8 +34,6 @@ export default function Camel () {
   const [result, setResult] = useState({ canmel: '', snake: '' })
   const [areaRows, setAreaRow] = useState(defaultRows)
 
-
-
   useEffect(() => {
     let list = inputText.split("\n")
     let canmel = list.map(item => snake2Camel(item)).join('\n')
@@ -47,8 +41,6 @@ export default function Camel () {
     setAreaRow(list.length < 10 ? defaultRows : list.length + 2)
     setResult({ canmel, snake })
   }, [inputText])
-
-
 
   return (
     <>
