@@ -1,3 +1,4 @@
+import { SwitchHorizontalIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import { Head, Nav, Container } from '../components/Page'
 
@@ -58,6 +59,15 @@ const ToolList = props => {
       ]
     },
     {
+      text: '正则表达式',
+      links: [
+        {
+          text: '不重复造轮子',
+          href: 'https://regex101.com/'
+        }
+      ]
+    },
+    {
       text: '+',
       links: [
         {
@@ -85,9 +95,7 @@ const TransferIcon = props => {
   return (
     <>
       {props.left}
-      <svg className="inline w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-      </svg>
+      <SwitchHorizontalIcon className="inline w-4 h-4 mx-1 mb-1" />
       {props.right}
     </>
   )
