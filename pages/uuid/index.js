@@ -7,7 +7,6 @@ import { Head, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 import Button from '../../components/Button'
-import QuickCopy from '../../components/QuickCopy';
 import QuickCopyTextarea from '../../components/QuickCopyTextarea';
 
 function generateUUID (count) {
@@ -80,15 +79,13 @@ const CustomQuantity = memo(({ g }) => {
     <>
       <div className="flex flex-wrap mb-4">
         <div className="relative">
-          <QuickCopy value={uuidList} className="absolute top-2 right-2 p-1 border border-gray-300 text-gray-300 rounded-md opacity-0 group-hover:opacity-100 hover:bg-gray-50 hover:border-gray-400 hover:text-gray-400" >
-            <input
-              name="count"
-              id="count"
-              value={count} onChange={event => onInputChange(event)} type="number"
-              className="w-32 h-full block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              placeholder=""
-            />
-          </QuickCopy>
+          <input
+            name="count"
+            id="count"
+            value={count} onChange={event => onInputChange(event)} type="number"
+            className="w-32 h-full block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            placeholder=""
+          />
         </div>
 
         <Button onClick={refresh} className="ml-3">
@@ -105,8 +102,8 @@ const CustomQuantity = memo(({ g }) => {
         </Button>
 
       </div>
-        <QuickCopyTextarea value={uuidList} onChange={event => setUuidList(event.target.value)} rows="11">
-        </QuickCopyTextarea>
+      <QuickCopyTextarea value={uuidList} onChange={event => setUuidList(event.target.value)} rows="11">
+      </QuickCopyTextarea>
     </>
   )
 })
