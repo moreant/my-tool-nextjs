@@ -24,7 +24,7 @@ class CustomDocument extends Document {
       <Html>
         <Head />
         {isProduction && (
-          <Fragment>
+          <>
             {/* Global Site Tag (gtag.js) - Google Analytics */}
             <script
               async
@@ -43,7 +43,7 @@ class CustomDocument extends Document {
                   `,
               }}
             />
-          </Fragment>
+          </>
         )}
         <body>
           <Main />
