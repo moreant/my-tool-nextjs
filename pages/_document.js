@@ -10,6 +10,8 @@ class CustomDocument extends Document {
     return (
       <Html>
         <Head >
+          <meta name="description" content="yeek mytool麦兔，程序员工具集" />
+          <meta name="keywords" content="mytool,麦兔,yeek,uuid,base64" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
