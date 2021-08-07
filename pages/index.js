@@ -1,4 +1,4 @@
-import { SwitchHorizontalIcon } from '@heroicons/react/outline'
+import { ExternalLinkIcon, SwitchHorizontalIcon, ViewGridAddIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import { Head, Nav, Container } from '../components/Page'
 
@@ -7,21 +7,11 @@ const ToolList = props => {
   const itemList = [
     {
       text: 'UUID',
-      links: [
-        {
-          text: '快速复制',
-          href: '/uuid'
-        }
-      ]
+      href: '/uuid'
     },
     {
       text: 'Base64',
-      links: [
-        {
-          text: '编码',
-          href: '/base64'
-        }
-      ]
+      href: '/base64'
     },
     // {
     //   text: 'Timestamp',
@@ -51,30 +41,17 @@ const ToolList = props => {
     // },
     {
       text: <TransferIcon left='驼峰' right='蛇形' />,
-      links: [
-        {
-          text: '饱和互转',
-          href: '/camel'
-        }
-      ]
+      href: '/camel'
     },
     {
       text: '正则表达式',
-      links: [
-        {
-          text: '不重复造轮子',
-          href: 'https://regex101.com/'
-        }
-      ]
+      href: 'https://regex101.com/'
+    
     },
     {
-      text: '+',
-      links: [
-        {
-          text: '添加工具',
-          href: 'https://github.com/moreant/my-tool/issues/new'
-        }
-      ],
+      text: <>添加工具<ExternalLinkIcon className="w-6 h-6 mx-auto inline mb-1" /></>,
+      href: 'https://github.com/moreant/my-tool/issues/new',
+      target: '_blank',
       type: 'add'
     }
   ]
@@ -103,41 +80,24 @@ const TransferIcon = props => {
 
 const Item = props => {
   const { item = {} } = props
-  const { links = [] } = item
-  let boxClass = 'group text-xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 shadow hover:shadow-md w-full p-12'
+  let boxClass = 'group text-xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 hover:shadow-lg w-full p-12'
   if (item.type && item.type === 'add') {
     boxClass += ' border-dashed'
   }
   return (
     <>
-      <li className="flex w-64 min-w-full">
-        <div className={boxClass}>
-          <span className="tool group-hover:opacity-0 transition-opacity duration-100" > {item.text} </span>
-          <div className="flex space-x-1 absolute inset-0 p-1 grid-cols-2 grid-flow-col opacity-0 hover:opacity-100">
-            {props.children}
-            {
-              links.map((item, index) => <ItemLink key={index} href={item.href} text={item.text} />)
-            }
-          </div>
-        </div>
+      <li className="flex w-64 min-w-full ">
+        <Link href={item.href} >
+          <a target={item.target ? item.target : '_self'} className={boxClass}>
+            {item.text}
+          </a>
+
+        </Link>
+
       </li>
     </>
   )
 }
-
-const ItemLink = props => {
-  return (
-    <>
-      <Link href={props.href}>
-        <a className="transition-colors duration-150 w-full h-full bg-blue-200 bg-opacity-25 hover:bg-opacity-75 cursor-pointer rounded-lg flex items-center justify-center">
-          <span className="text-blue-700">{props.text}</span>
-        </a>
-      </Link>
-    </>
-  )
-}
-
-
 
 export default function Home () {
   return (
