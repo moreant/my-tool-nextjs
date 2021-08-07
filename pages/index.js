@@ -46,10 +46,10 @@ const ToolList = props => {
     {
       text: '正则表达式',
       href: 'https://regex101.com/'
-    
+
     },
     {
-      text: <>添加工具<ExternalLinkIcon className="w-6 h-6 mx-auto inline mb-1" /></>,
+      text: <>添加工具<ExternalLinkIcon className="w-6 h-6 mx-auto inline mb-1.5" /></>,
       href: 'https://github.com/moreant/my-tool/issues/new',
       target: '_blank',
       type: 'add'
@@ -72,7 +72,7 @@ const TransferIcon = props => {
   return (
     <>
       {props.left}
-      <SwitchHorizontalIcon className="inline w-4 h-4 mx-1 mb-1" />
+      <SwitchHorizontalIcon className="inline w-4 h-4 mx-1 mb-1.5" />
       {props.right}
     </>
   )
@@ -134,6 +134,11 @@ export default function Home () {
       <Container>
         <ToolList></ToolList>
       </Container>
+      <div className="text-center text-gray-400  absolute bottom-5 w-full">
+        <Link href="https://beian.miit.gov.cn">
+          <a className="hover:text-gray-900">粤ICP备2021109792号</a>
+        </Link>
+      </div>
     </>
 
   )
