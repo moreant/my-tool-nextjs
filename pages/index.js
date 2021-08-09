@@ -80,7 +80,7 @@ const TransferIcon = props => {
 
 const Item = props => {
   const { item = {} } = props
-  let boxClass = 'group text-xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 hover:shadow-lg w-full p-12'
+  let boxClass = 'group text-2xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 transition-all duration-100 ease-in-out hover:shadow-xl hover:bg-blue-500 hover:text-white w-full p-12'
   if (item.type && item.type === 'add') {
     boxClass += ' border-dashed'
   }
@@ -91,7 +91,6 @@ const Item = props => {
           <a target={item.target ? item.target : '_self'} className={boxClass}>
             {item.text}
           </a>
-
         </Link>
 
       </li>

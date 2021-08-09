@@ -52,7 +52,7 @@ export default function Camel () {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <ColumnLabel htmlFor="userInput" text="输入文本" />
-            <QuickCopyTextarea autoFocus value={inputText} onChange={event => setInputText(event.target.value)} placeholder="请输入" name="userInput" id="userInput" rows={areaRows} />
+            <QuickCopyTextarea autoFocus value={inputText} onChange={event => setInputText(event.target.value)} placeholder="Ctrl+V 粘贴" name="userInput" id="userInput" rows={areaRows} />
           </div>
           <div>
             <ColumnLabel htmlFor="canmel" text="驼峰命名" />
