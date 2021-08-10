@@ -3,10 +3,7 @@ import { GA_TRACKING_ID } from '../lib/gtag'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class CustomDocument extends Document {
-
   render () {
-    const { isProduction } = this.props
-
     return (
       <Html>
         <Head >
@@ -30,7 +27,7 @@ class CustomDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className="bg-gray-50">
           <Main />
           <NextScript />
         </body>

@@ -32,13 +32,11 @@ export default function Camel () {
   const defaultRows = 10
   const [inputText, setInputText] = useState('')
   const [result, setResult] = useState({ canmel: '', snake: '' })
-  const [areaRows, setAreaRow] = useState(defaultRows)
 
   useEffect(() => {
     let list = inputText.split("\n")
     let canmel = list.map(item => snake2Camel(item)).join('\n')
     let snake = list.map(item => camel2Snake(item)).join('\n')
-    setAreaRow(list.length < 10 ? defaultRows : list.length + 2)
     setResult({ canmel, snake })
   }, [inputText])
 
@@ -52,15 +50,15 @@ export default function Camel () {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <ColumnLabel htmlFor="userInput" text="输入文本" />
-            <QuickCopyTextarea autoFocus value={inputText} onChange={event => setInputText(event.target.value)} placeholder="Ctrl+V 粘贴" name="userInput" id="userInput" rows={areaRows} />
+            <QuickCopyTextarea autoFocus value={inputText} onChange={event => setInputText(event.target.value)} placeholder="Ctrl+V 粘贴" name="userInput" id="userInput" autoRow />
           </div>
           <div>
             <ColumnLabel htmlFor="canmel" text="驼峰命名" />
-            <QuickCopyTextarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" rows={areaRows}></QuickCopyTextarea>
+            <QuickCopyTextarea name="canmel" value={result.canmel} onChange={event => setResult({ ...result, canmel: event.target.value })} id="canmel" autoRow></QuickCopyTextarea>
           </div>
           <div>
             <ColumnLabel htmlFor="snake" text="蛇形命名" />
-            <QuickCopyTextarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" rows={areaRows}></QuickCopyTextarea>
+            <QuickCopyTextarea name="snake" value={result.snake} onChange={event => setResult({ ...result, snake: event.target.value })} id="snake" autoRow></QuickCopyTextarea>
           </div>
         </div>
       </Container>

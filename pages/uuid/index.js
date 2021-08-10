@@ -20,7 +20,7 @@ const QuickCopyUUID = () => {
   const CopyItem = props => {
     return (
       <>
-        <button onClick={() => { copy(generateUUID(props.quantity)) }} className="flex justify-center items-center px-6 py-3 md:py-5 text-gray-400 hover:text-gray-900 border border-gray-300 hover:bg-gray-50 rounded-md shadow-sm font-medium space-x-1 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none transition-colors duration-200">
+        <button onClick={() => { copy(generateUUID(props.quantity)) }} className="flex justify-center items-center px-6 py-3 md:py-5 text-gray-400 hover:text-gray-900 border border-gray-300 hover:bg-gray-50 rounded-md shadow-sm font-medium space-x-1 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none transition-colors duration-200 bg-white">
           <span className="text-gray-900">{props.quantity} 个 </span>
           <span><DuplicateIcon className="w-5 h-5" /></span>
         </button>
@@ -88,7 +88,7 @@ const CustomQuantity = memo(({ g }) => {
           />
         </div>
 
-        <Button onClick={refresh} className="ml-3">
+        <Button onClick={refresh} className="ml-3 bg-white">
           <RefreshIcon className="h-4 w-4" />
           <span className="ml-2">刷 新</span>
         </Button>
