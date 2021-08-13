@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Head, Nav, Container } from '../../components/Page'
+import { MyHead, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 import QuickCopyTextarea from '../../components/QuickCopyTextarea'
@@ -42,7 +42,7 @@ export default function Camel () {
 
   return (
     <>
-      <Head modul={`CamelOrSnake`} />
+      <MyHead modul={`CamelOrSnake`} />
       <Nav />
       <Container>
         <ToolTitle title="驼峰、蛇形互转" subtitle="驼峰命名形如：userId；蛇形命名形如：user_id。" mdSubtitle="驼峰命名（userId），蛇形命名（user_id）。" />

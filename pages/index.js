@@ -1,6 +1,6 @@
 import { ExternalLinkIcon, SwitchHorizontalIcon, ViewGridAddIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
-import { Head, Nav, Container } from '../components/Page'
+import { MyHead, Nav, Container } from '../components/Page'
 
 const ToolList = props => {
 
@@ -101,7 +101,7 @@ const Item = props => {
 export default function Home () {
   return (
     <>
-      <Head />
+      <MyHead />
       <Nav >
         <Container>
           <div className="lg:flex lg:items-center lg:justify-between">
@@ -130,14 +130,23 @@ export default function Home () {
           </div>
         </Container>
       </Nav>
-      <Container>
-        <ToolList></ToolList>
-      </Container>
-      <div className="text-center text-gray-400  absolute bottom-5 w-full">
+      <div>
+        <Container>
+          <ToolList></ToolList>
+        </Container>
+      </div>
+      <div className="text-center text-gray-400 mt-auto mb-5 relative w-full">
         <Link href="https://beian.miit.gov.cn">
           <a className="hover:text-gray-900">粤ICP备2021109792号</a>
         </Link>
       </div>
+      <style jsx global>{`
+      #__next{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }      
+      `}</style>
     </>
 
   )

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import copy from 'copy-to-clipboard';
 import { RefreshIcon, ClipboardCopyIcon, ClipboardCheckIcon, DuplicateIcon } from '@heroicons/react/outline'
 
-import { Head, Nav, Container } from '../../components/Page'
+import { MyHead, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
 import { ToolTitle, ToolDesc } from '../../components/ToolHead'
 import Button from '../../components/Button'
@@ -114,7 +114,7 @@ export default function UUID () {
 
   return (
     <>
-      <Head modul="UUID" />
+      <MyHead modul="UUID" />
       <Nav />
       <Container>
         <ToolTitle title="UUID 生成" subtitle="Universally unique identifier（通用唯一识别码）" mdSubtitle="UUID: 通用唯一识别码。" />
