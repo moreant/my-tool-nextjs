@@ -27,7 +27,7 @@ class CustomDocument extends Document {
             }}
           />
         </Head>
-        <body className="bg-gray-50">
+        <body className="bg-gray-100">
           <Main />
           <NextScript />
         </body>

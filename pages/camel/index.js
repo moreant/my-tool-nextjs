@@ -46,7 +46,7 @@ export default function Camel () {
       <Nav />
       <Container>
         <ToolTitle title="驼峰、蛇形互转" subtitle="驼峰命名形如：userId；蛇形命名形如：user_id。" mdSubtitle="驼峰命名（userId），蛇形命名（user_id）。" />
-        <ToolDesc text="饱和式转换，无需选择转驼峰还是蛇形。已对连续大写优化（xmlHTTPReq => xml_http_req）。进入页面后自动获取焦点，可直接 Ctrl+C 粘贴文本。" />
+        <ToolDesc text="饱和式转换，无需选择转驼峰还是蛇形。已对连续大写优化（xmlHTTPReq => xml_http_req）。进入页面后自动获取焦点，可直接 Ctrl+V 粘贴文本。" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <ColumnLabel htmlFor="userInput" text="输入文本" />

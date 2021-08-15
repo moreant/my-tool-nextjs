@@ -1,7 +1,7 @@
 import { useState, memo } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import copy from 'copy-to-clipboard';
-import { RefreshIcon, ClipboardCopyIcon, ClipboardCheckIcon, DuplicateIcon } from '@heroicons/react/outline'
+import { RefreshIcon, DuplicateIcon } from '@heroicons/react/outline'
 
 import { MyHead, Nav, Container } from '../../components/Page'
 import ColumnLabel from '../../components/ColumnLabel'
@@ -46,7 +46,6 @@ const CustomQuantity = memo(({ g }) => {
 
   const [count, setCount] = useState(Number(g))
   const [uuidList, setUuidList] = useState(generateUUID(g))
-  const [copyState, setCopyState] = useState(0)
 
   // 异步路由导致需要监听
   // useEffect(() => {
@@ -66,15 +65,6 @@ const CustomQuantity = memo(({ g }) => {
     setUuidList(generateUUID(count))
   }
 
-  const copyUuid = () => {
-    if (copy(uuidList)) {
-      setCopyState(1)
-      setTimeout(() => {
-        setCopyState(0)
-      }, 1000)
-    }
-  }
-
   return (
     <>
       <div className="flex flex-wrap mb-4">
@@ -88,19 +78,9 @@ const CustomQuantity = memo(({ g }) => {
           />
         </div>
 
-        <Button onClick={refresh} className="ml-3 bg-white">
-          <RefreshIcon className="h-4 w-4" />
-          <span className="ml-2">刷 新</span>
+        <Button onClick={refresh} className="ml-2">
+          <RefreshIcon className="h-4 w-4 mr-1" /> 刷 新
         </Button>
-
-        <Button onClick={copyUuid} type="primary" className="ml-3">
-          {
-            copyState === 1
-              ? <><ClipboardCheckIcon className="h-4 w-4" /><span className="ml-2">成功!</span></>
-              : <><ClipboardCopyIcon className="h-4 w-4" /><span className="ml-2">复 制</span></>
-          }
-        </Button>
-
       </div>
       <QuickCopyTextarea value={uuidList} onChange={event => setUuidList(event.target.value)} rows="11">
       </QuickCopyTextarea>
