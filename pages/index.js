@@ -80,7 +80,7 @@ const TransferIcon = props => {
 
 const Item = props => {
   const { item = {} } = props
-  let boxClass = 'group text-2xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 transition-all duration-100 ease-in-out hover:shadow-xl hover:bg-blue-500 hover:text-white w-full p-12 bg-white'
+  let boxClass = 'group text-2xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 transition-all duration-100 ease-in-out hover:shadow-xl hover:bg-blue-500 hover:text-white w-full p-12 bg-white 2xl:py-14 2xl:text-3xl'
   if (item.type && item.type === 'add') {
     boxClass += ' border-dashed'
   }
