@@ -49,7 +49,7 @@ const ToolList = props => {
 
     },
     {
-      text: <>添加工具<ExternalLinkIcon className="w-6 h-6 mx-auto inline mb-1.5" /></>,
+      text: <>添加工具<ExternalLinkIcon className="w-6 h-6 mx-auto inline mb-1 md:mb-1.5" /></>,
       href: 'https://github.com/moreant/my-tool/issues/new',
       target: '_blank',
       type: 'add'
@@ -59,7 +59,7 @@ const ToolList = props => {
 
   return (
     <>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-center">
+      <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 text-center">
         {
           itemList.map((item, index) => <Item key={index} item={item} />)
         }
@@ -72,7 +72,7 @@ const TransferIcon = props => {
   return (
     <>
       {props.left}
-      <SwitchHorizontalIcon className="inline w-4 h-4 mx-1 mb-1.5" />
+      <SwitchHorizontalIcon className="inline w-4 h-4 mx-1 mb-1 md:mb-1.5" />
       {props.right}
     </>
   )
@@ -80,13 +80,13 @@ const TransferIcon = props => {
 
 const Item = props => {
   const { item = {} } = props
-  let boxClass = 'group text-2xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 transition-all duration-100 ease-in-out hover:shadow-xl hover:bg-blue-500 hover:text-white w-full p-12 bg-white 2xl:py-14 2xl:text-3xl'
+  let boxClass = 'group text=xl md:text-2xl tracking-wider text-gray-900 font-bold relative rounded-xl border border-gray-400 border-opacity-30 transition-all duration-100 ease-in-out hover:shadow-xl hover:bg-blue-500 hover:text-white w-full md:w-full p-6 md:p-12 bg-white 2xl:py-14 2xl:text-3xl'
   if (item.type && item.type === 'add') {
     boxClass += ' border-dashed'
   }
   return (
     <>
-      <li className="flex w-64 min-w-full">
+      <li className="flex min-w-full">
         <Link href={item.href} >
           <a target={item.target ? item.target : '_self'} className={boxClass}>
             {item.text}
