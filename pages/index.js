@@ -1,5 +1,6 @@
 import { ExternalLinkIcon, SwitchHorizontalIcon, ViewGridAddIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
+import { useEffect, useState} from 'react'
 import { MyHead, Nav, Container } from '../components/Page'
 
 const ToolList = props => {
@@ -92,13 +93,22 @@ const Item = props => {
             {item.text}
           </a>
         </Link>
-
       </li>
     </>
   )
 }
 
-export default function Home () {
+
+
+export default function Home (context) {
+
+  const [mt, setMt] = useState(false)
+  useEffect(() => {
+    if (window.location.host === 'mt.yeek.top') {
+      setMt(true)
+    }
+  }, [])
+
   return (
     <>
       <MyHead />
@@ -135,10 +145,25 @@ export default function Home () {
           <ToolList></ToolList>
         </Container>
       </div>
-      <div className="text-center text-gray-400 mt-auto mb-5 relative w-full">
-        <Link href="https://beian.miit.gov.cn">
-          <a className="hover:text-gray-900">粤ICP备2021109792号</a>
-        </Link>
+      <div className="text-center text-gray-400 text-sm mt-auto mb-5 relative w-full">
+
+        <div className=" mb-2 ">
+          <Link href="https://beian.miit.gov.cn">
+            <a className="hover:text-gray-900">粤ICP备2021109792号</a>
+          </Link>
+        </div>
+
+        {
+          mt ?
+            <></>
+            : <div className="">
+              Powered by
+              <Link href="https://webify.cloudbase.net/">
+                <a className="hover:text-gray-900"> CloudBase Webify </a>
+              </Link>
+            </div>
+        }
+
       </div>
       <style jsx global>{`
       #__next{
