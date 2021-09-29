@@ -1,4 +1,4 @@
-import { GA_TRACKING_ID } from '../lib/gtag'
+// import { GA_TRACKING_ID } from '../lib/gtag'
 
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
@@ -10,7 +10,7 @@ class CustomDocument extends Document {
           <meta name="description" content="yeek mytool麦兔，程序员工具集" />
           <meta name="keywords" content="mytool,麦兔,yeek,uuid,base64" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <script
+          {/* <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -25,7 +25,7 @@ class CustomDocument extends Document {
             });
           `,
             }}
-          />
+          /> */}
         </Head>
         <body className="bg-gray-100">
           <Main />
