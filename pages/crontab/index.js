@@ -41,6 +41,7 @@ export default function Cron() {
           <input
             value={cronStr}
             onChange={(e) => setCronStr(e.target.value)}
+            type='text'
             className='w-64 h-12 px-4 block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
             placeholder='0 0 * * * *'
           />
