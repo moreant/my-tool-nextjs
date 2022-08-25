@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const MyHead = props => {
-  let title = '麦兔 - MyTool'
+  let title = 'MyTool - 驿站开发'
   if (props.title) {
     title = props.title
   } else if (props.modul) {
